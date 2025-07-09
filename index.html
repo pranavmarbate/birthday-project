@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday My Love</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #ffd1dc, #ffe6f0);
+      font-family: 'Great Vibes', cursive;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .container {
+      text-align: center;
+      background: white;
+      padding: 60px 40px;
+      border-radius: 30px;
+      box-shadow: 0 0 30px rgba(255, 192, 203, 0.7);
+      max-width: 600px;
+      animation: fadeIn 2s ease-in-out;
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 50px;
+      color: #ff69b4;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px #fff0f5;
+    }
+
+    h2 {
+      font-size: 28px;
+      color: #d63384;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #555;
+      font-family: 'Segoe UI', sans-serif;
+      margin-bottom: 40px;
+    }
+
+    .btn {
+      background: linear-gradient(to right, #ff5cad, #ffb3d9);
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 30px;
+      font-size: 18px;
+      cursor: pointer;
+      font-family: 'Segoe UI', sans-serif;
+      box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      0% {opacity: 0; transform: translateY(30px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+
+    .balloons {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .balloon {
+      position: absolute;
+      width: 40px;
+      height: 60px;
+      background-color: #ff69b4;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      animation: float 6s infinite ease-in-out;
+    }
+
+    .balloon::after {
+      content: "";
+      position: absolute;
+      width: 2px;
+      height: 20px;
+      background-color: #555;
+      left: 50%;
+      top: 100%;
+    }
+
+    @keyframes float {
+      0% {transform: translateY(0) rotate(0deg);}
+      50% {transform: translateY(-200px) rotate(10deg);}
+      100% {transform: translateY(0) rotate(0deg);}
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="balloons">
+    <div class="balloon" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="balloon" style="left: 25%; animation-delay: 1s;"></div>
+    <div class="balloon" style="left: 40%; animation-delay: 2s;"></div>
+    <div class="balloon" style="left: 60%; animation-delay: 3s;"></div>
+    <div class="balloon" style="left: 75%; animation-delay: 4s;"></div>
+    <div class="balloon" style="left: 90%; animation-delay: 5s;"></div>
+  </div>
+
+  <div class="container">
+    <h1>Happy Birthday My Love!</h1>
+    <h2>To the most amazing woman in my life</h2>
+    <p><em>"Every moment with you is a gift, and today we celebrate the greatest gift of all - YOU!"</em></p>
+    <button class="btn" onclick="window.location.href='page2.html'">Begin Your Surprise 💕</button>
+  </div>
+
+  <audio autoplay loop muted>
+  <source src="audio/song.mp3" type="audio/mpeg">
+</audio>
+</body>
+</html>

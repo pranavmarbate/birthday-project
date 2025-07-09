@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our Journey ❤️</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ffe6f0, #ffccff);
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+
+    .typewriter-container {
+      width: 90%;
+      max-width: 700px;
+      margin: 100px auto;
+      padding: 30px;
+      background-color: rgba(255, 255, 255, 0.85);
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .typewriter-text {
+      font-size: 24px;
+      color: #333;
+      min-height: 60px;
+    }
+
+    .btn {
+      margin-top: 30px;
+      padding: 15px 25px;
+      background: linear-gradient(to right, #ff8c94, #ffaaa6);
+      border: none;
+      border-radius: 25px;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    .floating-hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: floatHeart 10s infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes floatHeart {
+      0% {
+        bottom: 0;
+        opacity: 1;
+        transform: translateX(0) rotate(45deg);
+      }
+      100% {
+        bottom: 100%;
+        opacity: 0;
+        transform: translateX(50px) rotate(45deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="floating-hearts" id="hearts-container"></div>
+
+  <div class="typewriter-container">
+    <div id="text" class="typewriter-text"></div>
+    <button class="btn" onclick="window.location.href='page3.html'">Next Page 💞</button>
+  </div>
+
+  <audio autoplay loop muted>
+    <source src="audio/song.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const messages = [
+      "I still remember the first time we spoke...",
+      "Your smile, your words, your presence — everything felt magical.",
+      "In all these moments, I found love — real, deep, and forever.",
+      "This isn't just a message, it's a piece of my heart...",
+      "Thank you for existing. Thank you for being mine. ❤️"
+    ];
+
+    let index = 0;
+    const textEl = document.getElementById("text");
+
+    function typeMessage() {
+      let message = messages[index];
+      let charIndex = 0;
+      textEl.innerHTML = "";
+
+      let typing = setInterval(() => {
+        if (charIndex < message.length) {
+          textEl.innerHTML += message.charAt(charIndex);
+          charIndex++;
+        } else {
+          clearInterval(typing);
+          index++;
+          if (index < messages.length) {
+            setTimeout(typeMessage, 2000); // Delay before next message
+          }
+        }
+      }, 50);
+    }
+
+    typeMessage();
+
+    // Generate hearts
+    const heartsContainer = document.getElementById("hearts-container");
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = `${Math.random() * 100}%`;
+      heart.style.animationDuration = `${5 + Math.random() * 5}s`;
+      heartsContainer.appendChild(heart);
+      setTimeout(() => heart.remove(), 10000);
+    }, 500);
+  </script>
+
+</body>
+</html>

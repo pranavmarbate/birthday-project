@@ -1,0 +1,108 @@
+/* Global styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom right, #f9d5ec, #fad0c4);
+  overflow-x: hidden;
+}
+
+/* Balloons animation */
+.balloons {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.balloon {
+  position: absolute;
+  width: 40px;
+  height: 60px;
+  background: radial-gradient(circle at 30% 30%, #ff758c, #ff7eb3);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Container for content */
+.container {
+  max-width: 800px;
+  margin: 100px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+/* Heading style */
+h1 {
+  font-family: 'Pacifico', cursive;
+  color: #ff4081;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 22px;
+  color: #444;
+  font-weight: 400;
+}
+
+p {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.message {
+  font-family: 'Pacifico', cursive;
+  font-size: 22px;
+  color: #e91e63;
+  margin-top: 30px;
+}
+
+/* Button */
+.btn {
+  background: linear-gradient(to right, #ff6a88, #ff99ac);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 30px;
+  font-size: 18px;
+  margin-top: 30px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 30px;
+  }
+  .container {
+    margin: 50px 15px;
+    padding: 20px;
+  }
+}
